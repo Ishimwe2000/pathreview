@@ -2,7 +2,7 @@
 
 ## Week 7 — Issue selection
 
-**Issue link:** https://github.com/ascherj/pathreview/issues/155
+**[Issue link]:** (https://github.com/ascherj/pathreview/issues/155)
 
 **Issue title:** Health check references `settings.redis_host`, which does not exist on Settings
 
@@ -16,3 +16,7 @@ The `/health` endpoint's Redis check in `api/routes/health.py` builds a `redis.R
 This issue is a good first issue for me to start with because it is concentrated to one file and not spanning multiple modules to understand it. The path of the app that is affected is clear and isolated from other api endpoints' functionality. I am able to reproduce it and envision what a fix would be ( not returning an AttributeError). I believe the time I will allocate to this issue would be around 3-6 hours.
 
 **Branch name:** fix/155-health-check-redis-host
+
+**Setup confirmation:** [x] App runs locally at localhost:5173
+
+**Cohort ledger:** [x] Issue added to cohort ledger
