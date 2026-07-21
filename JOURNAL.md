@@ -13,6 +13,6 @@ The `/health` endpoint's Redis check in `api/routes/health.py` builds a `redis.R
 
 **Scope reasoning ("Is this right for me?"):**
 
-I've read the `health_check` function and `Settings` model directly and can sketch the fix (swap the missing `host`/`port` kwargs for `redis.Redis.from_url(settings.redis_url)`), so Tier 1 is a solid fit for my first Module 3 issue — it's confined to one or two files with no whole-system dependencies. No test file exists yet for this route, so I'll be writing the first one; despite 20+ other claimants on GitHub, claims are non-exclusive and grading is based on my own artifacts, and I found no blockers, so I'm comfortable the ~3-6 hour Tier 1 estimate fits the Week 8-9 timeline.
+This issue is a good first issue for me to start with because it is concentrated to one file and not spanning multiple modules to understand it. The path of the app that is affected is clear and isolated from other api endpoints' functionality. I am able to reproduce it and envision what a fix would be ( not returning an AttributeError). I believe the time I will allocate to this issue would be around 3-6 hours.
 
 **Branch name:** fix/155-health-check-redis-host
