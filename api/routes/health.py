@@ -1,6 +1,7 @@
-from fastapi import APIRouter, HTTPException, status, Depends
+from datetime import datetime
+
 import structlog
-from datetime import datetime, timedelta
+from fastapi import APIRouter, Depends, HTTPException, status
 
 from core.database import get_db
 
@@ -9,6 +10,7 @@ log = structlog.get_logger()
 router = APIRouter(prefix="/health", tags=["health"])
 
 
+# this is the file where the bug is located at the /health endpoint
 @router.get("")
 async def health_check(db=Depends(get_db)):
     """
@@ -39,8 +41,10 @@ async def health_check(db=Depends(get_db)):
     try:
         # Check Redis (if available)
         import redis
+
         from core.config import settings
 
+        # this is the Redis model that does not have the settings.redis_host attribute
         r = redis.Redis(
             host=settings.redis_host,
             port=settings.redis_port,
