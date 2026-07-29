@@ -24,13 +24,13 @@ This issue is a good first issue for me to start with because it is concentrated
 ## Week 8 — Reproduction & solution planning
 
 **Reproduction commit link:** https://github.com/Ishimwe2000/pathreview/commit/b207ffc2f25f4b7fdf1c4cf7f8b24dcf544e9fbb
-
+![Repro Screenshot](repro-screenshot.png)
 **Reproduction summary:**
 [1–2 sentences: How did you reproduce the issue? What did you observe?]
 I reproduced the issue by first installing the dependencies and running the app in one terminal using `make run`. I then opened another terminal and made a curl request on the backend using this command: `curl http://localhost:8000/health`. I observed this output in the curl terminal: 
 `{"detail":{"status":"unhealthy","dependencies":{"postgres":"unhealthy","redis":"unhealthy","vector_db":"healthy"},"safety_events_last_hour":0,"timestamp":"2026-07-28T22:59:55.982628"}` but also observed `2026-07-29 00:59:56 [error    ] redis_health_check_failed      error="'Settings' object has no attribute 'redis_host'" request_id=f269ad0d-8362-4337-bb19-1507789d7357` reproducing the bug behavior.
 
-**PLAN.md link:** [link to PLAN.md in your fork]
+**PLAN.md link:** https://github.com/Ishimwe2000/pathreview/blob/fix/155-health-check-redis-host/PLAN.md
 
 **Walkthrough video (recommended):** [link to your Loom video, ≤2 min — recommended, not graded]
 
