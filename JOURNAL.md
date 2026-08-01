@@ -42,7 +42,15 @@ There were some precommit failures related to typing annotation that will need t
 ### Check-in 1 (mid-week)
 
 **Current progress:**
-[What have you implemented so far? Which sub-tasks from PLAN.md are done?]
+Below is some baseline testing obtained from running some commands against the main branch in order to determine what currently works and what is broken on the branch before adding in my changes
+
+make setup results from the main branch
+![make-test-unit](make-test-unit.png)
+
+make check results from the main branch
+![make check run](make-check.png)
+
+The above results show that there are already some failures on the main branch before I add in my changes. I plan to use these to baseline  whether my changes introduce more failures or fix some of the existing failures.
 
 **Next steps:**
 [What are you working on for the rest of the week?]
