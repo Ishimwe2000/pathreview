@@ -66,9 +66,9 @@ Now I want to add in a fix that addresses both attribute errors instead of leavi
 
 ### Check-in 2 (end of week)
 
-**PR link:** [link to your submitted pull request]
+**PR link:** https://github.com/ascherj/pathreview/pull/505
 
-**Branch:** [the branch name you worked on, e.g. `fix/123-short-description`]
+**Branch:** fix/155 health check redis host
 
 **What you built:**
 [1–3 sentences summarizing what your fix does and how it works]
