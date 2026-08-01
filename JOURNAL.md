@@ -53,6 +53,7 @@ make check results from the main branch
 The above results show that there are already some failures on the main branch before I add in my changes. I plan to use these to baseline  whether my changes introduce more failures or fix some of the existing failures.
 
 **Next steps:**
+
 I first tried to only comment out the redis_host config line. That did not work as the next error was the redis_port throwing a similar AttributeError because the redis_port config also is not defined in the Settings class. 
 
 Now I want to add in a fix that addresses both attribute errors instead of leaving in a partial fix.
