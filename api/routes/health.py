@@ -46,7 +46,7 @@ async def health_check(db=Depends(get_db)):
 
         # this is the Redis model that does not have the settings.redis_host attribute
         r = redis.Redis(
-            host=settings.redis_host,
+            # host=settings.redis_host,
             port=settings.redis_port,
             db=0,
             decode_responses=True,
