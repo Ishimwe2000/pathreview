@@ -86,4 +86,4 @@ After the first homework review, a test file tests/unit/test_health.py is added 
  [X] make test-unit passes - there were 53 failed tests before and after. This is consistent as I did not add in any more tests.
  [X] New added tests run successfully and do not increase the number of failed tests.
 
-**Draft PR feedback received from:** [name or Slack handle, or "none"]g
+**Draft PR feedback received from:** [name or Slack handle, or "none"]
