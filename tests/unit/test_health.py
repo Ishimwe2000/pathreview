@@ -1,14 +1,15 @@
 """Tests for api/routes/health.py"""
 
-import pytest
 from unittest.mock import AsyncMock, Mock, patch
+
+import pytest
 from fastapi import HTTPException
 from fastapi.testclient import TestClient
 
-from core.config import settings
-from core.database import get_db
 from api.main import app
 from api.routes.health import health_check
+from core.config import settings
+from core.database import get_db
 
 
 @pytest.mark.unit
@@ -51,9 +52,11 @@ class TestHealthCheck:
         db = AsyncMock()
         db.execute = AsyncMock(side_effect=Exception("connection refused"))
 
-        with patch("redis.Redis.from_url", return_value=mock_redis_client):
-            with pytest.raises(HTTPException) as exc_info:
-                await health_check(db=db)
+        with (
+            patch("redis.Redis.from_url", return_value=mock_redis_client),
+            pytest.raises(HTTPException) as exc_info,
+        ):
+            await health_check(db=db)
 
         assert exc_info.value.status_code == 503
         detail = exc_info.value.detail
@@ -68,9 +71,11 @@ class TestHealthCheck:
         failing_client = Mock()
         failing_client.ping = Mock(side_effect=Exception("redis down"))
 
-        with patch("redis.Redis.from_url", return_value=failing_client):
-            with pytest.raises(HTTPException) as exc_info:
-                await health_check(db=mock_db)
+        with (
+            patch("redis.Redis.from_url", return_value=failing_client),
+            pytest.raises(HTTPException) as exc_info,
+        ):
+            await health_check(db=mock_db)
 
         assert exc_info.value.status_code == 503
         detail = exc_info.value.detail
@@ -79,7 +84,9 @@ class TestHealthCheck:
         assert detail["dependencies"]["postgres"] == "healthy"
 
     @pytest.mark.asyncio
-    async def test_redis_from_url_uses_configured_redis_url(self, mock_db, mock_redis_client, monkeypatch):
+    async def test_redis_from_url_uses_configured_redis_url(
+        self, mock_db, mock_redis_client, monkeypatch
+    ):
         """Redis client should be constructed from settings.redis_url."""
         monkeypatch.setattr(settings, "redis_url", "redis://custom-host:6380/2")
         monkeypatch.setattr(settings, "vector_db_url", "http://localhost:8001")
@@ -87,15 +94,13 @@ class TestHealthCheck:
         with patch("redis.Redis.from_url", return_value=mock_redis_client) as mock_from_url:
             await health_check(db=mock_db)
 
-        mock_from_url.assert_called_once_with(
-            "redis://custom-host:6380/2", decode_responses=True
-        )
+        mock_from_url.assert_called_once_with("redis://custom-host:6380/2", decode_responses=True)
 
     @pytest.mark.asyncio
     async def test_vector_db_unavailable_when_no_url_configured(
         self, mock_db, mock_redis_client, monkeypatch
     ):
-        """An empty vector_db_url should mark vector_db 'unavailable' without failing overall status."""
+        """An empty vector_db_url should mark vector_db 'unavailable' without failing status."""
         monkeypatch.setattr(settings, "vector_db_url", "")
 
         with patch("redis.Redis.from_url", return_value=mock_redis_client):
@@ -113,9 +118,11 @@ class TestHealthCheck:
         failing_client = Mock()
         failing_client.ping = Mock(side_effect=Exception("redis down"))
 
-        with patch("redis.Redis.from_url", return_value=failing_client):
-            with pytest.raises(HTTPException) as exc_info:
-                await health_check(db=db)
+        with (
+            patch("redis.Redis.from_url", return_value=failing_client),
+            pytest.raises(HTTPException) as exc_info,
+        ):
+            await health_check(db=db)
 
         detail = exc_info.value.detail
         assert detail["status"] == "unhealthy"
