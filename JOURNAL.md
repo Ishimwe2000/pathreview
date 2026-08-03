@@ -68,7 +68,7 @@ Now I want to add in a fix that addresses both attribute errors instead of leavi
 
 **PR link:** https://github.com/ascherj/pathreview/pull/505
 
-**Branch:** fix/155 health check redis host
+**Branch:** fix/155-health-check-redis-host
 
 **What you built:**
 [1–3 sentences summarizing what your fix does and how it works]
@@ -78,10 +78,12 @@ By using the redis_url which is a defined attribute on the class, its value is u
 **Tests added or updated:**
 [Which test files did you touch? What do they cover?]
 N/A the api/routes/health.py file did not have a corresponding unit test file to update.
+After the first homework review, a test file tests/unit/test_health.py is added to test new functionality.
 
 **Self-review confirmation:**
 
  [X] make check passes - there are now 179 errors when previously there were 182 errors
  [X] make test-unit passes - there were 53 failed tests before and after. This is consistent as I did not add in any more tests.
+ [X] New added tests run successfully and do not increase the number of failed tests.
 
-**Draft PR feedback received from:** [name or Slack handle, or "none"]
+**Draft PR feedback received from:** [name or Slack handle, or "none"]g
