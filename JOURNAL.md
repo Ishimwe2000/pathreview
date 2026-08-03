@@ -82,8 +82,8 @@ After the first homework review, a test file tests/unit/test_health.py is added 
 
 **Self-review confirmation:**
 
- [X] make check passes - there are now 179 errors when previously there were 182 errors
- [X] make test-unit passes - there were 53 failed tests before and after. This is consistent as I did not add in any more tests.
- [X] New added tests run successfully and do not increase the number of failed tests.
+[X] make check passes - there are now 179 errors when previously there were 182 errors
+[X] make test-unit passes - there were 53 failed tests before and after. This is consistent as I did not add in any more tests.
+[X] After the first review, a new test file test/unit/test_health.py is added to verify that the new functionality introduced by the fix works. The number of failed tests stays consistent at 53 after adding these new tests in which confirms that they did not introduce new test failures.
 
 **Draft PR feedback received from:** [name or Slack handle, or "none"]
