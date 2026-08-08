@@ -87,3 +87,47 @@ After the first homework review, a test file tests/unit/test_health.py is added 
 [X] After the first review, a new test file test/unit/test_health.py is added to verify that the new functionality introduced by the fix works. The number of failed tests stays consistent at 53 after adding these new tests in which confirms that they did not introduce new test failures.
 
 **Draft PR feedback received from:** [name or Slack handle, or "none"]
+
+## Week 10 — Iteration & reflection
+
+### Reviewer feedback
+
+**Feedback received:** [ ] Yes  [X] No — still awaiting review
+
+**Summary of feedback:**
+[What did reviewers comment on? Or note that no review came in.]
+No review came on my PR itself; however, I received feedback on my homework that my PR was missing unit tests which meant that the new functionality I added and the existing one could not be tested and validated to be correct.
+
+**How you responded:**
+[What changes did you make, or what did you reply? If no feedback,
+leave blank.]
+I replied to the homework feedback by adding a unit test file with tests covering the new functionality that I added.
+---
+
+### Reflection
+
+**What was harder than you expected?**
+[Be specific — what part of the process, codebase, or workflow
+surprised you?]
+Running into pre-existing errors on the repo for the issue I worked on was challenging because I had to isolate which errors were caused by my changes versus which errors were pre-existing on the repo before my changes. I overcame that by first running all the ci checks on the main branch without my changes and then running the same checks on my branch to note a difference in the number of failed tests with the explicit error messages.
+
+**What did you learn about working in a large codebase?**
+[What's different about contributing to someone else's production code
+vs. building your own project?]
+A large codebase has its own syntax style and chosen tools for running the repo. It took some time to get familiar with those and adhere to these practices when adding in my own code.
+I learned to isolate my changes to the files I was working on and not interfere with other existing functionality. This was challenging because there were a lot of other files to consider, but the issue I worked on: https://github.com/ascherj/pathreview/pull/505 was isolated to the healthcheck endpoint which helped.
+**How did AI tools help — and where did they fall short?**
+[Where was AI assistance most useful this module? Where did you need
+to go beyond what AI could give you?]
+Claude code was useful in double checking my understanding and in code generation as well. Navigating the pathreview repository was made easy by using Claude to assist with grouping the different folders and what they do.
+In addition, once I added in my first version of the fix to comment out the unused redis_host config, I double checked the correctness of my solution against Claude's solution.
+**What would you do differently if you started over?**
+[Issue selection, planning, implementation, or process — anything
+you'd change?]
+I would have planned to add in tests for my functionality from the beginning instead of adding them in after review feedback.
+I would have also picked a more involved issue that touches more files than just the api/routes/health.py file, but the one I chose was a perfect first issue candidate so I continued with it. It gave me practice with claiming issues and working on them. This is practice that I can build on in other contribution spaces when I touch real repos.
+**What are you most proud of from this module?**
+[One thing — it doesn't have to be the PR itself.]
+I am proud that I showed up for all the 10 weeks and completed all the homework! Finishing the projects whilst working was challenging but I stayed consistent.
+I am proud of all the work I did in breakout rooms, in collaboration with other students. We learned together and benefited from each other's knowledge.
+I am proud to have taken this step to learn more about AI, particularly in the first weeks' modules the information was very valuable and new to me.
